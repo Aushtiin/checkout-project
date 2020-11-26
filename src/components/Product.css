@@ -149,3 +149,7 @@ body {
   outline: none;
   display: block;
 }
+
+.paybutton{
+  background-color: green !important;
+}

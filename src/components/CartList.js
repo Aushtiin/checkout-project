@@ -29,7 +29,7 @@ const Cart = ({ cart, increase, decrease, deletee, clear }) => {
                 <button type="button" onClick={() => clear() }>
                     Clear Cart
                 </button>
-                <PaystackButton {...componentProps} />
+                <PaystackButton className='paybutton' {...componentProps} />
             </div>
             <div className="container">
                 {cart.map((item) => (

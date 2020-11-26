@@ -20,3 +20,8 @@
   /* text-decoration: none !important; */
 }
 
+@media (min-width: 300px) and (max-width: 760px) {
+  .Navbar{
+    width: 610px;
+  }
+}

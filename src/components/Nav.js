@@ -7,7 +7,6 @@ const Nav = () => {
         <>
             <div className='Navbar navbar '>
                 <div className="container">
-                    {/* <ul className='navbar-nav nav-justified w-100 text-center' > */}
                     <li className='nav-item'>
                         <Link to='/' className='home-button d-flex flex-column' >
                             <i class="fas fa-home"></i>
@@ -18,7 +17,6 @@ const Nav = () => {
                             <i className="fas fa-cart-plus"></i>
                         </Link>
                     </li>
-                {/* </ul> */}
                 </div>
             </div>
         </>

@@ -1,33 +1,30 @@
-function compressArray(original) {
-
-    var compressed = [];
-    // make a copy of the input array
-    var copy = original.slice(0);
-
-    // first loop goes over every element
-    for (var i = 0; i < original.length; i++) {
-
-        var myCount = 0;
-        // loop over every element in the copy and see if it's the same
-        for (var w = 0; w < copy.length; w++) {
-            if (original[i] == copy[w]) {
-                // increase amount of times duplicate is found
+const compressArray = (original) => {
+    const compressed = [];
+    const copy = original.slice(0);
+    original.filter(Boolean).map((obj)=> {
+        let myCount = 0
+        copy.filter(Boolean).map((item) => {
+            if (obj.id === item.id) {
                 myCount++;
-                // sets item to undefined
-                delete copy[w];
+                item = undefined;
             }
-        }
-
+        })
         if (myCount > 0) {
-            var a = new Object();
-            a = { ...original[i], count: myCount };
-            // a.value = original[i];
-            // a.count = myCount;
+            let a = new Object();
+            a = { ...obj, count: obj.count ? obj.count + (myCount-1) : myCount };
             compressed.push(a);
         }
-    }
+    })
+    const setObj = new Set();
 
-    return compressed;
-};
+    const result = compressed.reduce((acc,item)=>{
+      if(!setObj.has(item.id)){
+        setObj.add(item.id,item)
+        acc.push(item)
+      }
+      return acc;
+    },[]);
+    return result;
+}
 
 export default compressArray
